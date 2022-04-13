@@ -86,15 +86,6 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"title\": \"Escuadra updated\", \n    \"price\": 23.45, \n    \"thumbnail\": \"no-image\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "localhost:8080/api/productos/3",
 					"host": [
