@@ -1,0 +1,20 @@
+[
+  {
+    "id": 5,
+    "title": "Reloj",
+    "price": 67.89,
+    "thumbnail": "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Karu/2021/June/Karu_LP_Controller2.png"
+  },
+  {
+    "id": 6,
+    "title": "Agenda",
+    "price": 78.9,
+    "thumbnail": "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Karu/2021/June/Karu_LP_Playstation3.jpg"
+  },
+  {
+    "title": "Escuadra updated",
+    "price": 23.45,
+    "thumbnail": "no-image",
+    "id": 2
+  }
+]
