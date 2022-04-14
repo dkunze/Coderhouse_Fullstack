@@ -4,7 +4,7 @@
 		"name": "Coderhouse",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
-	"item": [
+	"item": [		
 		{
 			"name": "CLASE 08 - DESAFIO - GET PRODUCTS",
 			"request": {
@@ -19,6 +19,26 @@
 					"path": [
 						"api",
 						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CLASE 08 - DESAFIO - GET PRODUCTS By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/productos/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos",
+						"1"
 					]
 				}
 			},
