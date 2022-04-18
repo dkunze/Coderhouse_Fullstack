@@ -12,7 +12,7 @@ class Container {
             let getData = JSON.parse(readFile)
 
             let search = getData.filter(d => {
-                return d.id === id
+                return d.id == id
             })
             if (search.length === 0) {
                 return { error: 'producto no encontrado' }
