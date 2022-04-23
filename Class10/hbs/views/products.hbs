@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+{{>head}}
+<body>
+    <div class="container mt-5 p-3">
+        <h3>Listado de Productos con HBS</h3>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Imagen URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#if data.length}} 
+                    {{#each data}}                        
+                <tr>
+                    <th scope="row">{{this.id}}</th>
+                    <td>{{this.title}}</td>
+                    <td>{{this.price}}</td>
+                    <td><img src={{this.thumbnail}} /></td>
+                </tr>
+                    {{/each}}
+                {{else}}
+                <tr>
+                    <th scope="row"></th>
+                    <td>No hay productos</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                {{/if}}
+
+            </tbody>
+        </table>
+
+        <div class="mt-5">
+            <a href="/" class="btn btn-success">Carga de Productos</a>
+        </div>
+    </div>
+</body>
+
+</html>

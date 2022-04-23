@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<%- include("templates/head") %>
+
+<body>
+    <div class="container mt-5 p-3">
+        <h3>Listado de Productos con EJS</h3>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Imagen URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if ( data.length != 0 ){ 
+                    data.forEach(function(p) { %>
+                <tr>
+                    <th scope="row"><%=p.id%></th>
+                    <td><%=p.title%></td>
+                    <td><%=p.price%></td>
+                    <td><img src=<%=p.thumbnail%> /></td>
+                </tr>
+                <% })
+                    }else{ %>
+                <tr>
+                    <th scope="row"></th>
+                    <td>No hay productos</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <% } %>
+
+            </tbody>
+        </table>
+
+        <div class="mt-5">
+            <a href="/" class="btn btn-success">Carga de Productos</a>
+        </div>
+    </div>
+</body>
+
+</html>

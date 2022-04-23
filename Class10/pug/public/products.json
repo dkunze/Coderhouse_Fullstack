@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Reloj",
+    "price": 67.89,
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/space-flat-galaxy-radio/512/meteorite-256.png"
+  },
+  {
+    "id": 2,
+    "title": "Agenda",
+    "price": 78.9,
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/space-flat-galaxy-radio/512/UFO-256.png"
+  },
+  {
+    "title": "Escuadra updated",
+    "price": 23.45,
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/space-flat-galaxy-radio/512/robot-256.png",
+    "id": 3
+  },
+  {
+    "title": "nuevo producto 2",
+    "price": "500",
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/space-flat-galaxy-radio/512/alien-256.png",
+    "id": 4
+  },
+  {
+    "title": "otro articulo",
+    "price": "100",
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/space-flat-galaxy-radio/512/planets-256.png",
+    "id": 5
+  },
+  {
+    "title": "Notebook",
+    "price": "85000",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/geek-3/24/Game_Over_sign_video_game-256.png",
+    "id": 6
+  },
+  {
+    "title": "Monitor",
+    "price": "8500",
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-40-256.png",
+    "id": 7
+  },
+  {
+    "title": "Probando articulo en pug",
+    "price": "5600",
+    "thumbnail": "https://cdn2.iconfinder.com/data/icons/social-media-and-payment/64/-75-256.png",
+    "id": 8
+  }
+]

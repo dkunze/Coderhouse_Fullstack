@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<%- include("templates/head") %>
+
+<body>
+
+    <div class="container mt-5 p-3">
+        <h3>Ingrese el Producto con EJS</h3>
+        <form class="bg-light" action="/productos" method="POST">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="text" name="title" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Nombre" autocomplete="off">
+                <small id="emailHelp" class="form-text text-muted">Ingresar el nombre del item</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Precio</label>
+                <input type="number" name="price" class="form-control" placeholder="0.00" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Foto URL</label>
+                <input type="text" name="thumbnail" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="URL Imagen" autocomplete="off">
+                <small id="emailHelp" class="form-text text-muted">Ingresar la URL de la Imagen</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+        <div class="mt-5">
+            <a href="/productos" class="btn btn-success">Listado de Productos</a>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

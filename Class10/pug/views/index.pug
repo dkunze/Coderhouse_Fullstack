@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    include partials/head.pug
+    body 
+        div.container.mt-5.p-3
+            h3 Ingrese el Producto con PUG
+            form(class="bg-light" action="/productos" method="POST")
+                div.form-group
+                    label Nombre
+                    input(type="text" name="title" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Nombre" autocomplete="off")
+                    small(id="emailHelp" class="form-text text-muted") Ingresar el nombre del item
+                
+                div.form-group
+                    label Precio
+                    input(type="number" name="price" class="form-control" placeholder="0.00" autocomplete="off")
+
+                div.form-group
+                    label(for="exampleInputEmail1") Foto URL
+                    input(type="text" name="thumbnail" class="form-control" placeholder="URL Imagen" autocomplete="off")
+                    small(id="emailHelp" class="form-text text-muted") Ingresar la URL de la Imagen
+
+                button(type="submit" class="btn btn-primary") Enviar
+
+            div.mt-5
+                a(href="/productos" class="btn btn-success") Listado de Productos
+            
