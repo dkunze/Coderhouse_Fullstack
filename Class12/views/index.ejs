@@ -114,7 +114,7 @@
 
         const renderMessages = (data) => {
             let html = data.map((i) => {
-                return `<p><strong>${i.email}</strong> [${i.date}]: <b style='color: green'>${i.message}</b> </p>`
+                return `<p><strong style='color:blue;'>${i.email}</strong> [<label style='color:#A52A2A;'>${i.date}<label>]: <i style='color: green'>${i.message}</i> </p>`
             }).join(" ")
 
             document.querySelector("#chatHistory").innerHTML = html
