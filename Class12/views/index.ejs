@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<%- include("templates/head") %>
+
+<body>
+
+    <div class="container mt-5 p-3">
+        <h3>Ingrese el Producto con EJS</h3>
+        <form class="bg-light" onsubmit="return createProduct()">
+            <div class="form-group" style="padding: 10px;">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="text" name="title" id="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nombre" autocomplete="off" required="required">
+                <small id="emailHelp" class="form-text text-muted">Ingresar el nombre del item</small>
+            </div>
+            <div class="form-group" style="padding: 10px;">
+                <label for="exampleInputPassword1">Precio</label>
+                <input type="number" name="price" id="price" class="form-control" placeholder="0.00" autocomplete="off"  required="required">
+            </div>
+            <div class="form-group" style="padding: 10px;">
+                <label for="exampleInputEmail1">Foto URL</label>
+                <input type="text" name="thumbnail" id="thumbnail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="URL Imagen" autocomplete="off"  required="required">
+                <small id="emailHelp" class="form-text text-muted">Ingresar la URL de la Imagen</small>
+            </div>
+            <div class="form-group" style="padding: 10px;">
+                <input type="submit" class="btn btn-primary" value="Enviar">
+            </div>
+        </form>
+
+        <div class="mt-5">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Imagen URL</th>
+                    </tr>
+                </thead>
+                <tbody id="productsList"></tbody>
+            </table>
+        </div>
+    
+        <br/>
+        <br/>
+        <hr>
+            
+        <h1>Centro de Mensajes</h1>
+        <form class="bg-light" onsubmit="return sendMessage()">
+            <div class="form-group" style="padding: 10px">
+                <label for="exampleInputEmail1">E-mail</label>
+                <input type="email" name="input_email" id="input_email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" autocomplete="off" required="required">
+                <small id="emailHelp" class="form-text text-muted">Ingresar su correo electronico</small>
+            </div>
+           
+            <div id="chatHistory" style="padding: 10px"></div>
+
+            <div class="form-group"  style="padding: 10px">
+                <label for="exampleInputPassword1">Mensaje</label>
+                <textarea name="input_message" id="input_message" class="form-control" placeholder="Ingrese su mensaje" autocomplete="off"  required="required"></textarea>
+            </div>            
+            <input type="submit" class="btn btn-primary" value="Enviar">
+        </form>
+    
+        
+    </div>
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io()
+        socket.on("products", (data) => {
+            render(data)            
+        })
+
+        const render = (data) => {
+            let html = data.length > 0 ? data.map((p) => {
+                return `<tr>
+                    <th scope="row">${p.id}</th>
+                    <td>${p.title}</td>
+                    <td>${p.price}</td>
+                    <td><img style="width:100px;height:100px;" src=${p.thumbnail} /></td>
+                </tr>`
+            }).join(" ") : `<tr>
+                    <th scope="row"></th>
+                    <td>No hay productos</td>
+                    <td></td>
+                    <td></td>
+                </tr>`
+
+            document.querySelector("#productsList").innerHTML = html
+        }
+
+        const createProduct = () => {
+            let dataObj = {
+                title: document.querySelector("#title").value,
+                price: document.querySelector("#price").value,
+                thumbnail: document.querySelector("#thumbnail").value
+            }
+            socket.emit("addProduct", dataObj)
+
+            document.querySelector("#title").value = ''
+            document.querySelector("#price").value = ''
+            document.querySelector("#thumbnail").value = ''
+
+            return false            
+        }
+
+        // Chat 
+        socket.on("messages", (data) => {
+            renderMessages(data)
+            //socket.emit("message_client", "Gracias por la conexion")
+        })
+
+        const renderMessages = (data) => {
+            let html = data.map((i) => {
+                return `<p><strong>${i.email}</strong> [${i.date}]: <b style='color: green'>${i.message}</b> </p>`
+            }).join(" ")
+
+            document.querySelector("#chatHistory").innerHTML = html
+        }
+
+        const sendMessage = () => {
+            let dataObj = {
+                email: document.querySelector("#input_email").value,
+                message: document.querySelector("#input_message").value
+            }
+            socket.emit("createMessage", dataObj)
+
+            document.querySelector("#input_message").value = ''
+
+            return false
+        }
+    </script>
+</body>
+
+</html>
